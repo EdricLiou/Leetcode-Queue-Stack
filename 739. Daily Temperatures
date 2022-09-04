@@ -17,3 +17,29 @@ public:
 };
 
 // https://ithelp.ithome.com.tw/articles/10237395
+
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& T) {
+        stack<int> st;
+        int size = T.size();
+        vector<int> ans = vector<int>(size, 0);
+
+        for(int i = 0 ; i < size;++i){
+            while(!st.empty()){
+                if(T[i] > T[st.top()]){
+                    ans[st.top()] = i - st.top();
+                    st.pop();
+                }
+                else{
+                    break;
+                }
+            }
+
+            st.push(i);
+        }
+        
+        return ans;
+    }
+};
+
