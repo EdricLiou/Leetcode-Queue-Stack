@@ -34,6 +34,8 @@ public:
         }
     }
     
+    // https://www.cnblogs.com/grandyang/p/4626238.html
+    
 private:
     stack<int> _old, _new;
 };
